@@ -17,7 +17,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'standard' => [
-        'base_url' => env('SERVERTHEME_STANDARD_URL', 'https://yourdomain.com/api/'),
+        'base_url' => env('SERVERTHEME_STANDARD_URL', 'https://gsmsector.com/public'),
         'api_key' => env('SERVERTHEME_STANDARD_API_KEY'),
         'username' => env('SERVERTHEME_STANDARD_USERNAME'),
         'timeout' => env('SERVERTHEME_STANDARD_TIMEOUT', 30),
@@ -30,7 +30,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'pro' => [
-        'base_url' => env('SERVERTHEME_PRO_URL', 'https://api.dhrufusion.com'),
+        'base_url' => env('SERVERTHEME_PRO_URL', 'https://api.dhrufusion.com/api'),
         'api_token' => env('SERVERTHEME_PRO_API_TOKEN'),
         'timeout' => env('SERVERTHEME_PRO_TIMEOUT', 30),
         'retries' => env('SERVERTHEME_PRO_RETRIES', 3),
