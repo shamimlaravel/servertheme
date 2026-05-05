@@ -1,0 +1,10 @@
+{
+    "SUCCESS": [
+        {
+            "balance": 450.78,
+            "currency": "EUR",
+            "name": "John Doe",
+            "email": "john@example.com"
+        }
+    ]
+}

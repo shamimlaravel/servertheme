@@ -1,0 +1,16 @@
+{
+    "data": {
+        "products": {
+            "uuid-123": {
+                "name": "iCloud Unlock Pro",
+                "type": "digital",
+                "price": 30.00,
+                "cids": ["cat-1"]
+            }
+        },
+        "categories": {
+            "cat-1": {"name": "Apple Devices"}
+        },
+        "currency": "USD"
+    }
+}

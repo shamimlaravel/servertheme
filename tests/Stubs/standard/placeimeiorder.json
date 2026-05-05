@@ -1,0 +1,11 @@
+{
+    "SUCCESS": [
+        {
+            "order_id": "ORD-12345",
+            "status": "pending",
+            "reference_id": "REF001",
+            "amount": 25.00,
+            "currency": "EUR"
+        }
+    ]
+}

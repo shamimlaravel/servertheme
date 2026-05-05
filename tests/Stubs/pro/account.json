@@ -1,0 +1,8 @@
+{
+    "data": {
+        "balance": 1250.50,
+        "currency": "USD",
+        "name": "Jane Smith",
+        "email": "jane@example.com"
+    }
+}
