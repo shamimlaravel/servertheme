@@ -17,7 +17,11 @@ trait HandlesHttp
         ?string $token = null
     ): array {
         $request = Http::timeout($this->config['timeout'] ?? 30)
-            ->retry($this->config['retries'] ?? 3, 100);
+            ->retry($this->config['retries'] ?? 3, 100)
+            ->withHeaders([
+                'Accept' => 'application/json',
+                'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            ]);
 
         if ($token) {
             $request = $request->withToken($token);

@@ -15,14 +15,24 @@ final class FusionProDriver extends AbstractDriver implements FusionProInterface
     private function getEndpoint(string $endpoint, array $query = []): array
     {
         $cfg = $this->config['pro'] ?? $this->config;
-        $url = rtrim($cfg['base_url'] ?? '', '/') . '/' . ltrim($endpoint, '/');
+        // Ensure base_url ends with /api if not already present
+        $baseUrl = rtrim($cfg['base_url'] ?? '', '/');
+        if (!str_ends_with($baseUrl, '/api')) {
+            $baseUrl .= '/api';
+        }
+        $url = $baseUrl . '/' . ltrim($endpoint, '/');
         return $this->executeRequest('get', $url, query: $query, token: $cfg['api_token'] ?? null);
     }
 
     private function postEndpoint(string $endpoint, array $data): array
     {
         $cfg = $this->config['pro'] ?? $this->config;
-        $url = rtrim($cfg['base_url'] ?? '', '/') . '/' . ltrim($endpoint, '/');
+        // Ensure base_url ends with /api if not already present
+        $baseUrl = rtrim($cfg['base_url'] ?? '', '/');
+        if (!str_ends_with($baseUrl, '/api')) {
+            $baseUrl .= '/api';
+        }
+        $url = $baseUrl . '/' . ltrim($endpoint, '/');
         return $this->executeRequest('post', $url, data: $data, token: $cfg['api_token'] ?? null);
     }
 

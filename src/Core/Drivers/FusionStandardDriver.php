@@ -15,6 +15,12 @@ final class FusionStandardDriver extends AbstractDriver implements FusionStandar
     private function call(string $action, array $params = []): array
     {
         $cfg = $this->config['standard'] ?? $this->config;
+        
+        // Ensure base_url ends with /public if not already present
+        $baseUrl = rtrim($cfg['base_url'] ?? '', '/');
+        if (!str_ends_with($baseUrl, '/public')) {
+            $baseUrl .= '/public';
+        }
 
         $payload = array_merge([
             'action' => $action,
@@ -24,7 +30,7 @@ final class FusionStandardDriver extends AbstractDriver implements FusionStandar
 
         return $this->executeRequest(
             method: 'post',
-            url: $cfg['base_url'] ?? '',
+            url: $baseUrl,
             data: $payload
         );
     }
