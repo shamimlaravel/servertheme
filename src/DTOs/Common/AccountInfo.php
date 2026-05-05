@@ -17,7 +17,7 @@ final readonly class AccountInfo
     public function formattedBalance(): string
     {
         $currencySymbols = ['USD' => '$', 'EUR' => '€', 'GBP' => '£'];
-$symbol = $currencySymbols[$this->currency] ?? $this->currency . ' ';
+        $symbol = $currencySymbols[$this->currency] ?? $this->currency;
 return $symbol . number_format($this->balance, 2);
     }
 

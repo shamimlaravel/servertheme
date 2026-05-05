@@ -12,19 +12,19 @@ use ShamimStack\ServerTheme\Support\ResponseNormalizer;
 
 final class FusionStandardDriver extends AbstractDriver implements FusionStandardInterface
 {
-    use \ShamimStack\ServerTheme\Traits\HandlesHttp;
-
     private function call(string $action, array $params = []): array
     {
+        $cfg = $this->config['standard'] ?? $this->config;
+
         $payload = array_merge([
             'action' => $action,
-            'username' => $this->config['username'],
-            'api_key' => $this->config['api_key'],
+            'username' => $cfg['username'] ?? '',
+            'api_key' => $cfg['api_key'] ?? '',
         ], $params);
 
         return $this->executeRequest(
             method: 'post',
-            url: $this->config['base_url'],
+            url: $cfg['base_url'] ?? '',
             data: $payload
         );
     }

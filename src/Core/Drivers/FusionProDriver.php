@@ -12,18 +12,18 @@ use ShamimStack\ServerTheme\Support\ResponseNormalizer;
 
 final class FusionProDriver extends AbstractDriver implements FusionProInterface
 {
-    use \ShamimStack\ServerTheme\Traits\HandlesHttp;
-
     private function getEndpoint(string $endpoint, array $query = []): array
     {
-        $url = rtrim($this->config['base_url'], '/') . '/' . ltrim($endpoint, '/');
-        return $this->executeRequest('get', $url, query: $query, token: $this->config['api_token']);
+        $cfg = $this->config['pro'] ?? $this->config;
+        $url = rtrim($cfg['base_url'] ?? '', '/') . '/' . ltrim($endpoint, '/');
+        return $this->executeRequest('get', $url, query: $query, token: $cfg['api_token'] ?? null);
     }
 
     private function postEndpoint(string $endpoint, array $data): array
     {
-        $url = rtrim($this->config['base_url'], '/') . '/' . ltrim($endpoint, '/');
-        return $this->executeRequest('post', $url, data: $data, token: $this->config['api_token']);
+        $cfg = $this->config['pro'] ?? $this->config;
+        $url = rtrim($cfg['base_url'] ?? '', '/') . '/' . ltrim($endpoint, '/');
+        return $this->executeRequest('post', $url, data: $data, token: $cfg['api_token'] ?? null);
     }
 
     public function getAccountInfo(): AccountInfo
