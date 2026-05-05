@@ -1,9 +1,0 @@
-{
-    "data": {
-        "order_uuid": "uuid-order-123",
-        "status": "pending",
-        "reference_id": "REF001",
-        "amount": 30.00,
-        "currency": "USD"
-    }
-}
